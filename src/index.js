@@ -1,23 +1,23 @@
 const express = require('express')
-const cors = require('cors')
+// const cors = require('cors')
 const {Pool} = require('pg')
-require('dotenv').config()
+const dotenv = require('dotenv').config()
 
 const PORT = process.env.PORT || 3333
 
 const pool = new Pool({
-    // connectionString: 'process.env.POSTGRES_URL'
-    database: 'carro_node',
-    user: 'postgres',
-    password: 'postegres',
-    port: 5432 
+  
+    database: process.env.POSTGRES_DATABASE,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    port: process.env.POSTGRES_PORT
 })
 
 const app = express()
 
 app.use(express.json())
 
-app.use(cors())
+// app.use(cors())
 
 app.get('/', (req, res) => {console.log('ola mundo')})
 
