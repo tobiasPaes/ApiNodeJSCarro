@@ -44,7 +44,7 @@ app.use(express.json())
 
 // app.use(cors())
 
-AD
+
 app.get('/listarCarros', async (req, res) => {
     const carro = await sql`select * from carro`
     return res.status(200).send(carro)
